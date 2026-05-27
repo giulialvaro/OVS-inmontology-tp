@@ -1,0 +1,120 @@
+# =============================================================================
+# Grafo de datos VÁLIDO — cumple TODAS las restricciones de shapes.ttl
+# =============================================================================
+# Contiene 1 casa publicada en venta en Mar del Plata con precio, dirección,
+# cantidad de ambientes y origen del dato. Diseñado para cubrir las 7 shapes.
+# =============================================================================
+
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc:     <http://purl.org/dc/elements/1.1/> .
+@prefix gr:     <http://purl.org/goodrelations/v1#> .
+@prefix sioc:   <http://rdfs.org/sioc/ns#> .
+@prefix time:   <http://www.w3.org/2006/time#> .
+@prefix rec:    <https://w3id.org/rec#> .
+@prefix pronto: <https://raw.githubusercontent.com/fdioguardi/pronto/main/ontology/pronto.owl#> .
+@prefix io:     <http://www.semanticweb.org/luciana/ontologies/2024/8/inmontology#> .
+@prefix ex:     <http://example.org/data/> .
+
+
+# -----------------------------------------------------------------------------
+# Publicación (pronto:RealEstateListing) — cubre RealEstateListingShape
+# -----------------------------------------------------------------------------
+ex:listing_001 a pronto:RealEstateListing ;
+    rdfs:label "Casa en venta en Mar del Plata"^^xsd:string ;
+    dc:date "2026-05-20T00:00:00"^^xsd:dateTime ;
+    sioc:id "MDP-001"^^xsd:string ;
+    sioc:read_at "2026-05-21T00:00:00"^^xsd:dateTime ;
+    sioc:about ex:house_001 ;
+    sioc:has_creator ex:account_001 ;
+    gr:hasBusinessFunction gr:Sell ;
+    io:hasFeature ex:price_001 .
+
+ex:account_001 a sioc:UserAccount ;
+    sioc:name "inmobiliaria_demo"^^xsd:string .
+
+
+# -----------------------------------------------------------------------------
+# Inmueble: casa (io:House subClassOf rec:RealEstate)
+# Cubre RealEstateShape + HouseShape (jerarquía)
+# -----------------------------------------------------------------------------
+ex:house_001 a io:House ;
+    io:hasFeature ex:address_001 ,
+                  ex:rooms_001 ,
+                  ex:surface_001 ;
+    rec:includes ex:building_001 .
+
+ex:building_001 a rec:Building ;
+    rdfs:label "Edificio principal de la casa"^^xsd:string .
+
+
+# -----------------------------------------------------------------------------
+# Feature: precio (io:Price) — cubre PriceShape y UnitPriceSpecificationShape
+# -----------------------------------------------------------------------------
+ex:price_001 a io:Price ;
+    io:hasDetail ex:price_detail_001 .
+
+ex:price_detail_001 a io:TemporalFeature ;
+    io:hasScraperTime ex:time_001 ;
+    io:hasScraperValue ex:price_value_001 .
+
+ex:time_001 a time:Instant ;
+    time:inXSDDateTimeStamp "2026-05-21T00:00:00"^^xsd:dateTime .
+
+ex:price_value_001 a gr:UnitPriceSpecification ;
+    gr:hasCurrency "USD"^^xsd:string ;
+    gr:hasCurrencyValue "185000.0"^^xsd:float ;
+    gr:priceType "BASE"^^xsd:string .
+
+
+# -----------------------------------------------------------------------------
+# Feature: dirección (io:Address) — cubre PostalAddressShape
+# -----------------------------------------------------------------------------
+ex:address_001 a io:Address ;
+    io:hasDetail ex:address_detail_001 .
+
+ex:address_detail_001 a io:TemporalFeature ;
+    io:hasScraperValue ex:postal_address_001 .
+
+ex:postal_address_001 a io:PostalAddress ;
+    io:address "Luro 3212"^^xsd:string ;
+    rec:city ex:city_mdp ;
+    io:province ex:province_baca ;
+    io:neighborhood ex:neighborhood_centro .
+
+ex:city_mdp a io:City ;
+    rdfs:label "Mar del Plata"^^xsd:string .
+
+ex:province_baca a io:Province ;
+    rdfs:label "Buenos Aires Costa Atlántica"^^xsd:string .
+
+ex:neighborhood_centro a io:Neighborhood ;
+    rdfs:label "Centro"^^xsd:string .
+
+
+# -----------------------------------------------------------------------------
+# Feature: cantidad de ambientes (io:RoomAmnt) — requerida por HouseShape
+# -----------------------------------------------------------------------------
+ex:rooms_001 a io:RoomAmnt ;
+    io:hasDetail [
+        a io:TemporalFeature ;
+        io:hasScraperValue "4"^^xsd:integer
+    ] .
+
+
+# -----------------------------------------------------------------------------
+# Feature: superficie (io:Surface) — feature extra para demostrar variedad
+# -----------------------------------------------------------------------------
+ex:surface_001 a io:Surface ;
+    io:hasDetail [
+        a io:TemporalFeature ;
+        io:hasScraperValue "120.5"^^xsd:float
+    ] .
+
+
+# -----------------------------------------------------------------------------
+# Origen del dato (io:Origin) — cubre OriginShape
+# -----------------------------------------------------------------------------
+ex:origin_scraper_001 a io:Scraper ;
+    rdfs:label "Scraper del sitio inmobiliario X"^^xsd:string .

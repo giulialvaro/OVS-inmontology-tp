@@ -1,0 +1,101 @@
+# =============================================================================
+# Grafo de datos INVÁLIDO — viola intencionalmente 7 restricciones distintas
+# =============================================================================
+# Cada inmueble/feature viola una restricción diferente, para demostrar la
+# variedad de violaciones que SHACL puede detectar.
+#
+# Violaciones esperadas:
+#  V1) Currency "dolares" no matchea ^[A-Z]{3}$         → UnitPriceSpecificationShape / sh:pattern
+#  V2) Precio negativo (-50000)                          → UnitPriceSpecificationShape / sh:minExclusive
+#  V3) Listing sin sioc:has_creator                      → RealEstateListingShape / sh:minCount
+#  V4) gr:hasBusinessFunction con valor inválido         → RealEstateListingShape / sh:in
+#  V5) Casa (io:House) sin io:RoomAmnt                   → HouseShape / sh:qualifiedMinCount
+#  V6) PostalAddress sin io:province                     → PostalAddressShape / sh:minCount
+#  V7) PostalAddress con io:neighborhood como string     → PostalAddressShape / sh:class
+#  V8) Origen anónimo (blank node, no IRI)               → OriginShape / sh:nodeKind
+# =============================================================================
+
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc:     <http://purl.org/dc/elements/1.1/> .
+@prefix gr:     <http://purl.org/goodrelations/v1#> .
+@prefix sioc:   <http://rdfs.org/sioc/ns#> .
+@prefix time:   <http://www.w3.org/2006/time#> .
+@prefix rec:    <https://w3id.org/rec#> .
+@prefix pronto: <https://raw.githubusercontent.com/fdioguardi/pronto/main/ontology/pronto.owl#> .
+@prefix io:     <http://www.semanticweb.org/luciana/ontologies/2024/8/inmontology#> .
+@prefix ex:     <http://example.org/data/> .
+
+
+# -----------------------------------------------------------------------------
+# Listing inválido:
+#   V3) NO tiene sioc:has_creator
+#   V4) gr:hasBusinessFunction es gr:Repair (no Sell ni LeaseOut)
+# -----------------------------------------------------------------------------
+ex:listing_bad a pronto:RealEstateListing ;
+    rdfs:label "Listing con varios errores"^^xsd:string ;
+    dc:date "2026-05-20T00:00:00"^^xsd:dateTime ;
+    sioc:id "BAD-001"^^xsd:string ;
+    sioc:about ex:house_bad ;
+    # ↑ V3: falta sioc:has_creator
+    gr:hasBusinessFunction gr:Repair ;   # V4: no es Sell ni LeaseOut
+    io:hasFeature ex:price_bad .
+
+
+# -----------------------------------------------------------------------------
+# Casa inválida:
+#   V5) Es io:House pero NO tiene io:RoomAmnt en sus features
+# -----------------------------------------------------------------------------
+ex:house_bad a io:House ;
+    io:hasFeature ex:address_bad ;
+    # ↑ V5: tiene features, pero ninguna es io:RoomAmnt → falla HouseShape
+    rec:includes ex:building_bad .
+
+ex:building_bad a rec:Building .
+
+
+# -----------------------------------------------------------------------------
+# Precio inválido:
+#   V1) Currency "dolares" (no es código ISO 4217 de 3 letras mayúsculas)
+#   V2) Valor negativo (-50000)
+# -----------------------------------------------------------------------------
+ex:price_bad a io:Price ;
+    io:hasDetail ex:price_detail_bad .
+
+ex:price_detail_bad a io:TemporalFeature ;
+    io:hasScraperValue ex:price_value_bad .
+
+ex:price_value_bad a gr:UnitPriceSpecification ;
+    gr:hasCurrency "dolares"^^xsd:string ;       # V1: no matchea ^[A-Z]{3}$
+    gr:hasCurrencyValue "-50000.0"^^xsd:float ;  # V2: < 0
+    gr:priceType "BASE"^^xsd:string .
+
+
+# -----------------------------------------------------------------------------
+# Dirección inválida:
+#   V6) NO tiene io:province
+#   V7) io:neighborhood apunta a un string en vez de a una io:Neighborhood
+# -----------------------------------------------------------------------------
+ex:address_bad a io:Address ;
+    io:hasDetail ex:address_detail_bad .
+
+ex:address_detail_bad a io:TemporalFeature ;
+    io:hasScraperValue ex:postal_address_bad .
+
+ex:postal_address_bad a io:PostalAddress ;
+    io:address "Calle falsa 123"^^xsd:string ;
+    rec:city ex:city_mdp ;
+    # ↑ V6: falta io:province
+    io:neighborhood "Centro"^^xsd:string .  # V7: debería ser io:Neighborhood
+
+ex:city_mdp a io:City ;
+    rdfs:label "Mar del Plata"^^xsd:string .
+
+
+# -----------------------------------------------------------------------------
+# Origen inválido:
+#   V8) Es un blank node anónimo (no IRI) declarado como io:Origin sin subtipo
+# -----------------------------------------------------------------------------
+[] a io:Origin ;
+   rdfs:label "Origen anónimo, no es Scraper ni AVE ni Curation"^^xsd:string .

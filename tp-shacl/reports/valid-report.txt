@@ -1,0 +1,568 @@
+Adding ontology definitions to DataGraph
+Skipping DataGraph clone because PySHACL is operating in inplace mode.
+Running pre-inferencing with option='rdfs'.
+Found 7 SHACL Shapes defined with type sh:NodeShape.
+Found 0 SHACL Shapes defined with type sh:PropertyShape.
+Found 0 property paths to follow.
+Found 7 implied SHACL Shapes based on their properties.
+Found 21 implied SHACL Shapes used as values in shape-expecting constraints.
+Cached 11 unique NodeShapes and 16 unique PropertyShapes.
+Validating DataGraph named N2d4faa267832425e9383e6571efb98b0
+Checking if Shape <NodeShape http://example.org/shapes/inmontology#PriceShape> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.021ms
+Found 1 Focus Nodes to evaluate.
+Running evaluation of Shape <NodeShape http://example.org/shapes/inmontology#PriceShape>
+Milliseconds to find value nodes for focus nodes: 0.001ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#PriceShape>
+Checking conformance for constraint: <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PriceShape>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#PriceShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PriceShape>>
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb12>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb12>
+Milliseconds to find value nodes for focus nodes: 0.005ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#PriceShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PriceShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb12>
+Checking conformance for constraint: <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb12>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#PriceShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PriceShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb12> -> <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb12>>
+Milliseconds to check constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb12>>: 0.011ms
+DataGraph conforms to constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb12>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb12>: 0.087ms
+Milliseconds to check constraint <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PriceShape>>: 0.153ms
+DataGraph conforms to constraint <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PriceShape>>.
+Milliseconds to evaluate shape <NodeShape http://example.org/shapes/inmontology#PriceShape>: 0.245ms
+Checking if Shape <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.018ms
+Found 1 Focus Nodes to evaluate.
+Running evaluation of Shape <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>
+Milliseconds to find value nodes for focus nodes: 0.000ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>
+Checking conformance for constraint: <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>>
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb13>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb13>
+Milliseconds to find value nodes for focus nodes: 0.005ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb13>
+Checking conformance for constraint: <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb13>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb13> -> <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb13>>
+Milliseconds to check constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb13>>: 0.009ms
+DataGraph conforms to constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb13>>.
+Checking conformance for constraint: <MaxCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb13>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb13> -> <MaxCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb13>>
+Milliseconds to check constraint <MaxCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb13>>: 0.009ms
+DataGraph conforms to constraint <MaxCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb13>>.
+Checking conformance for constraint: <DatatypeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb13>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb13> -> <DatatypeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb13>>
+Milliseconds to check constraint <DatatypeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb13>>: 0.012ms
+DataGraph conforms to constraint <DatatypeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb13>>.
+Checking conformance for constraint: <PatternConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb13>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb13> -> <PatternConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb13>>
+Milliseconds to check constraint <PatternConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb13>>: 0.020ms
+DataGraph conforms to constraint <PatternConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb13>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb13>: 0.284ms
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb14>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb14>
+Milliseconds to find value nodes for focus nodes: 0.004ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb14>
+Checking conformance for constraint: <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb14>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb14> -> <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb14>>
+Milliseconds to check constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb14>>: 0.012ms
+DataGraph conforms to constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb14>>.
+Checking conformance for constraint: <MaxCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb14>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb14> -> <MaxCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb14>>
+Milliseconds to check constraint <MaxCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb14>>: 0.008ms
+DataGraph conforms to constraint <MaxCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb14>>.
+Checking conformance for constraint: <DatatypeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb14>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb14> -> <DatatypeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb14>>
+Milliseconds to check constraint <DatatypeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb14>>: 0.009ms
+DataGraph conforms to constraint <DatatypeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb14>>.
+Checking conformance for constraint: <MinExclusiveConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb14>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb14> -> <MinExclusiveConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb14>>
+Milliseconds to check constraint <MinExclusiveConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb14>>: 0.030ms
+DataGraph conforms to constraint <MinExclusiveConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb14>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb14>: 0.174ms
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb15>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb15>
+Milliseconds to find value nodes for focus nodes: 0.004ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb15>
+Checking conformance for constraint: <InConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb15>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb15> -> <InConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb15>>
+Milliseconds to check constraint <InConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb15>>: 0.010ms
+DataGraph conforms to constraint <InConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb15>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb15>: 0.086ms
+Milliseconds to check constraint <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>>: 0.641ms
+DataGraph conforms to constraint <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>>.
+Milliseconds to evaluate shape <NodeShape http://example.org/shapes/inmontology#UnitPriceSpecificationShape>: 0.698ms
+Checking if Shape <NodeShape http://example.org/shapes/inmontology#OriginShape> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.027ms
+Found 1 Focus Nodes to evaluate.
+Running evaluation of Shape <NodeShape http://example.org/shapes/inmontology#OriginShape>
+Milliseconds to find value nodes for focus nodes: 0.000ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#OriginShape>
+Checking conformance for constraint: <NodeKindConstraintComponent on <NodeShape http://example.org/shapes/inmontology#OriginShape>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#OriginShape> -> <NodeKindConstraintComponent on <NodeShape http://example.org/shapes/inmontology#OriginShape>>
+Milliseconds to check constraint <NodeKindConstraintComponent on <NodeShape http://example.org/shapes/inmontology#OriginShape>>: 0.011ms
+DataGraph conforms to constraint <NodeKindConstraintComponent on <NodeShape http://example.org/shapes/inmontology#OriginShape>>.
+Checking conformance for constraint: <OrConstraintComponent on <NodeShape http://example.org/shapes/inmontology#OriginShape>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#OriginShape> -> <OrConstraintComponent on <NodeShape http://example.org/shapes/inmontology#OriginShape>>
+Running evaluation of Shape <NodeShape n4e502c3d40994c669307b9df0076300cb23>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <NodeShape n4e502c3d40994c669307b9df0076300cb23>
+Milliseconds to find value nodes for focus nodes: 0.000ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#OriginShape> -> <OrConstraintComponent on <NodeShape http://example.org/shapes/inmontology#OriginShape>> -> <NodeShape n4e502c3d40994c669307b9df0076300cb23>
+Checking conformance for constraint: <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb23>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#OriginShape> -> <OrConstraintComponent on <NodeShape http://example.org/shapes/inmontology#OriginShape>> -> <NodeShape n4e502c3d40994c669307b9df0076300cb23> -> <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb23>>
+Milliseconds to check constraint <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb23>>: 0.148ms
+Focus nodes do _not_ conform to constraint <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb23>>.
+Milliseconds to evaluate shape <NodeShape n4e502c3d40994c669307b9df0076300cb23>: 0.192ms
+Running evaluation of Shape <NodeShape n4e502c3d40994c669307b9df0076300cb24>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <NodeShape n4e502c3d40994c669307b9df0076300cb24>
+Milliseconds to find value nodes for focus nodes: 0.000ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#OriginShape> -> <OrConstraintComponent on <NodeShape http://example.org/shapes/inmontology#OriginShape>> -> <NodeShape n4e502c3d40994c669307b9df0076300cb24>
+Checking conformance for constraint: <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb24>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#OriginShape> -> <OrConstraintComponent on <NodeShape http://example.org/shapes/inmontology#OriginShape>> -> <NodeShape n4e502c3d40994c669307b9df0076300cb24> -> <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb24>>
+Milliseconds to check constraint <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb24>>: 0.080ms
+Focus nodes do _not_ conform to constraint <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb24>>.
+Milliseconds to evaluate shape <NodeShape n4e502c3d40994c669307b9df0076300cb24>: 0.124ms
+Running evaluation of Shape <NodeShape n4e502c3d40994c669307b9df0076300cb22>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <NodeShape n4e502c3d40994c669307b9df0076300cb22>
+Milliseconds to find value nodes for focus nodes: 0.000ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#OriginShape> -> <OrConstraintComponent on <NodeShape http://example.org/shapes/inmontology#OriginShape>> -> <NodeShape n4e502c3d40994c669307b9df0076300cb22>
+Checking conformance for constraint: <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb22>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#OriginShape> -> <OrConstraintComponent on <NodeShape http://example.org/shapes/inmontology#OriginShape>> -> <NodeShape n4e502c3d40994c669307b9df0076300cb22> -> <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb22>>
+Milliseconds to check constraint <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb22>>: 0.011ms
+DataGraph conforms to constraint <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb22>>.
+Milliseconds to evaluate shape <NodeShape n4e502c3d40994c669307b9df0076300cb22>: 0.047ms
+sh:or constraint reports will be inspected and not passed to the parent Node:
+Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:class io:AVE ]
+	Focus Node: ex:origin_scraper_001
+	Value Node: ex:origin_scraper_001
+	Message: Value does not have class io:AVE
+
+Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:class io:Curation ]
+	Focus Node: ex:origin_scraper_001
+	Value Node: ex:origin_scraper_001
+	Message: Value does not have class io:Curation
+
+Milliseconds to check constraint <OrConstraintComponent on <NodeShape http://example.org/shapes/inmontology#OriginShape>>: 0.474ms
+DataGraph conforms to constraint <OrConstraintComponent on <NodeShape http://example.org/shapes/inmontology#OriginShape>>.
+Milliseconds to evaluate shape <NodeShape http://example.org/shapes/inmontology#OriginShape>: 0.559ms
+Checking if Shape <NodeShape n4e502c3d40994c669307b9df0076300cb24> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.009ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <NodeShape n4e502c3d40994c669307b9df0076300cb24> because it found no focus nodes.
+Checking if Shape <NodeShape n4e502c3d40994c669307b9df0076300cb22> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.007ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <NodeShape n4e502c3d40994c669307b9df0076300cb22> because it found no focus nodes.
+Checking if Shape <NodeShape http://example.org/shapes/inmontology#RealEstateShape> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.044ms
+Found 1 Focus Nodes to evaluate.
+Running evaluation of Shape <NodeShape http://example.org/shapes/inmontology#RealEstateShape>
+Milliseconds to find value nodes for focus nodes: 0.000ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateShape>
+Checking conformance for constraint: <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>>
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb1>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb1>
+Milliseconds to find value nodes for focus nodes: 0.004ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb1>
+Checking conformance for constraint: <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb1>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb1> -> <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb1>>
+Milliseconds to check constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb1>>: 0.008ms
+DataGraph conforms to constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb1>>.
+Checking conformance for constraint: <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb1>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb1> -> <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb1>>
+Milliseconds to check constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb1>>: 0.023ms
+DataGraph conforms to constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb1>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb1>: 0.100ms
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb2>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb2>
+Milliseconds to find value nodes for focus nodes: 0.003ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb2>
+Checking conformance for constraint: <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb2>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb2> -> <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb2>>
+Milliseconds to check constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb2>>: 0.007ms
+DataGraph conforms to constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb2>>.
+Checking conformance for constraint: <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb2>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb2> -> <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb2>>
+Milliseconds to check constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb2>>: 0.014ms
+DataGraph conforms to constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb2>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb2>: 0.087ms
+Milliseconds to check constraint <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>>: 0.240ms
+DataGraph conforms to constraint <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>>.
+Milliseconds to evaluate shape <NodeShape http://example.org/shapes/inmontology#RealEstateShape>: 0.292ms
+Checking if Shape <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.014ms
+Found 1 Focus Nodes to evaluate.
+Running evaluation of Shape <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>
+Milliseconds to find value nodes for focus nodes: 0.000ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>
+Checking conformance for constraint: <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>>
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb5>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb5>
+Milliseconds to find value nodes for focus nodes: 0.003ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb5>
+Checking conformance for constraint: <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb5>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb5> -> <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb5>>
+Milliseconds to check constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb5>>: 0.007ms
+DataGraph conforms to constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb5>>.
+Checking conformance for constraint: <MaxCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb5>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb5> -> <MaxCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb5>>
+Milliseconds to check constraint <MaxCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb5>>: 0.007ms
+DataGraph conforms to constraint <MaxCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb5>>.
+Checking conformance for constraint: <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb5>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb5> -> <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb5>>
+Milliseconds to check constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb5>>: 0.013ms
+DataGraph conforms to constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb5>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb5>: 0.114ms
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb6>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb6>
+Milliseconds to find value nodes for focus nodes: 0.003ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb6>
+Checking conformance for constraint: <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb6>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb6> -> <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb6>>
+Milliseconds to check constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb6>>: 0.007ms
+DataGraph conforms to constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb6>>.
+Checking conformance for constraint: <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb6>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb6> -> <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb6>>
+Milliseconds to check constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb6>>: 0.010ms
+DataGraph conforms to constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb6>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb6>: 0.082ms
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb7>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb7>
+Milliseconds to find value nodes for focus nodes: 0.003ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb7>
+Checking conformance for constraint: <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb7>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb7> -> <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb7>>
+Milliseconds to check constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb7>>: 0.007ms
+DataGraph conforms to constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb7>>.
+Checking conformance for constraint: <InConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb7>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb7> -> <InConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb7>>
+Milliseconds to check constraint <InConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb7>>: 0.008ms
+DataGraph conforms to constraint <InConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb7>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb7>: 0.096ms
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb10>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb10>
+Milliseconds to find value nodes for focus nodes: 0.003ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb10>
+Checking conformance for constraint: <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb10>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb10> -> <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb10>>
+Milliseconds to check constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb10>>: 0.007ms
+DataGraph conforms to constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb10>>.
+Checking conformance for constraint: <DatatypeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb10>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb10> -> <DatatypeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb10>>
+Milliseconds to check constraint <DatatypeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb10>>: 0.008ms
+DataGraph conforms to constraint <DatatypeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb10>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb10>: 0.081ms
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb11>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb11>
+Milliseconds to find value nodes for focus nodes: 0.003ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb11>
+Checking conformance for constraint: <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb11>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb11> -> <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb11>>
+Milliseconds to check constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb11>>: 0.007ms
+DataGraph conforms to constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb11>>.
+Checking conformance for constraint: <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb11>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb11> -> <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb11>>
+Milliseconds to check constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb11>>: 0.013ms
+DataGraph conforms to constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb11>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb11>: 0.083ms
+Milliseconds to check constraint <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>>: 0.576ms
+DataGraph conforms to constraint <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>>.
+Milliseconds to evaluate shape <NodeShape http://example.org/shapes/inmontology#RealEstateListingShape>: 0.634ms
+Checking if Shape <NodeShape http://example.org/shapes/inmontology#HouseShape> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.014ms
+Found 1 Focus Nodes to evaluate.
+Running evaluation of Shape <NodeShape http://example.org/shapes/inmontology#HouseShape>
+Milliseconds to find value nodes for focus nodes: 0.000ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape>
+Checking conformance for constraint: <NodeConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <NodeConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>>
+Running evaluation of Shape <NodeShape http://example.org/shapes/inmontology#RealEstateShape>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <NodeShape http://example.org/shapes/inmontology#RealEstateShape>
+Milliseconds to find value nodes for focus nodes: 0.000ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <NodeConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>> -> <NodeShape http://example.org/shapes/inmontology#RealEstateShape>
+Checking conformance for constraint: <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <NodeConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>> -> <NodeShape http://example.org/shapes/inmontology#RealEstateShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>>
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb1>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb1>
+Milliseconds to find value nodes for focus nodes: 0.003ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <NodeConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>> -> <NodeShape http://example.org/shapes/inmontology#RealEstateShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb1>
+Checking conformance for constraint: <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb1>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <NodeConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>> -> <NodeShape http://example.org/shapes/inmontology#RealEstateShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb1> -> <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb1>>
+Milliseconds to check constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb1>>: 0.009ms
+DataGraph conforms to constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb1>>.
+Checking conformance for constraint: <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb1>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <NodeConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>> -> <NodeShape http://example.org/shapes/inmontology#RealEstateShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb1> -> <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb1>>
+Milliseconds to check constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb1>>: 0.025ms
+DataGraph conforms to constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb1>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb1>: 0.101ms
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb2>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb2>
+Milliseconds to find value nodes for focus nodes: 0.003ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <NodeConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>> -> <NodeShape http://example.org/shapes/inmontology#RealEstateShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb2>
+Checking conformance for constraint: <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb2>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <NodeConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>> -> <NodeShape http://example.org/shapes/inmontology#RealEstateShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb2> -> <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb2>>
+Milliseconds to check constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb2>>: 0.008ms
+DataGraph conforms to constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb2>>.
+Checking conformance for constraint: <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb2>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <NodeConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>> -> <NodeShape http://example.org/shapes/inmontology#RealEstateShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb2> -> <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb2>>
+Milliseconds to check constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb2>>: 0.013ms
+DataGraph conforms to constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb2>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb2>: 0.087ms
+Milliseconds to check constraint <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>>: 0.240ms
+DataGraph conforms to constraint <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#RealEstateShape>>.
+Milliseconds to evaluate shape <NodeShape http://example.org/shapes/inmontology#RealEstateShape>: 0.287ms
+Milliseconds to check constraint <NodeConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>>: 0.317ms
+DataGraph conforms to constraint <NodeConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>>.
+Checking conformance for constraint: <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>>
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb3>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb3>
+Milliseconds to find value nodes for focus nodes: 0.003ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb3>
+Checking conformance for constraint: <QualifiedValueShapeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb3>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb3> -> <QualifiedValueShapeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb3>>
+Running evaluation of Shape <NodeShape n4e502c3d40994c669307b9df0076300cb4>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <NodeShape n4e502c3d40994c669307b9df0076300cb4>
+Milliseconds to find value nodes for focus nodes: 0.000ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb3> -> <QualifiedValueShapeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb3>> -> <NodeShape n4e502c3d40994c669307b9df0076300cb4>
+Checking conformance for constraint: <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb4>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb3> -> <QualifiedValueShapeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb3>> -> <NodeShape n4e502c3d40994c669307b9df0076300cb4> -> <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb4>>
+Milliseconds to check constraint <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb4>>: 0.012ms
+DataGraph conforms to constraint <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb4>>.
+Milliseconds to evaluate shape <NodeShape n4e502c3d40994c669307b9df0076300cb4>: 0.047ms
+Running evaluation of Shape <NodeShape n4e502c3d40994c669307b9df0076300cb4>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <NodeShape n4e502c3d40994c669307b9df0076300cb4>
+Milliseconds to find value nodes for focus nodes: 0.000ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb3> -> <QualifiedValueShapeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb3>> -> <NodeShape n4e502c3d40994c669307b9df0076300cb4>
+Checking conformance for constraint: <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb4>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb3> -> <QualifiedValueShapeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb3>> -> <NodeShape n4e502c3d40994c669307b9df0076300cb4> -> <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb4>>
+Milliseconds to check constraint <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb4>>: 0.078ms
+Focus nodes do _not_ conform to constraint <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb4>>.
+Milliseconds to evaluate shape <NodeShape n4e502c3d40994c669307b9df0076300cb4>: 0.120ms
+Running evaluation of Shape <NodeShape n4e502c3d40994c669307b9df0076300cb4>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <NodeShape n4e502c3d40994c669307b9df0076300cb4>
+Milliseconds to find value nodes for focus nodes: 0.000ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb3> -> <QualifiedValueShapeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb3>> -> <NodeShape n4e502c3d40994c669307b9df0076300cb4>
+Checking conformance for constraint: <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb4>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#HouseShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb3> -> <QualifiedValueShapeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb3>> -> <NodeShape n4e502c3d40994c669307b9df0076300cb4> -> <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb4>>
+Milliseconds to check constraint <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb4>>: 0.069ms
+Focus nodes do _not_ conform to constraint <ClassConstraintComponent on <NodeShape n4e502c3d40994c669307b9df0076300cb4>>.
+Milliseconds to evaluate shape <NodeShape n4e502c3d40994c669307b9df0076300cb4>: 0.112ms
+sh:qualifiedValueShape constraint reports will be ignored and not passed to the parent Node:
+Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:class io:RoomAmnt ]
+	Focus Node: ex:surface_001
+	Value Node: ex:surface_001
+	Message: Value does not have class io:RoomAmnt
+
+Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:class io:RoomAmnt ]
+	Focus Node: ex:address_001
+	Value Node: ex:address_001
+	Message: Value does not have class io:RoomAmnt
+
+Milliseconds to check constraint <QualifiedValueShapeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb3>>: 0.374ms
+DataGraph conforms to constraint <QualifiedValueShapeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb3>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb3>: 0.434ms
+Milliseconds to check constraint <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>>: 0.464ms
+DataGraph conforms to constraint <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#HouseShape>>.
+Milliseconds to evaluate shape <NodeShape http://example.org/shapes/inmontology#HouseShape>: 0.849ms
+Checking if Shape <NodeShape n4e502c3d40994c669307b9df0076300cb4> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.009ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <NodeShape n4e502c3d40994c669307b9df0076300cb4> because it found no focus nodes.
+Checking if Shape <NodeShape http://example.org/shapes/inmontology#PostalAddressShape> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.013ms
+Found 1 Focus Nodes to evaluate.
+Running evaluation of Shape <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>
+Milliseconds to find value nodes for focus nodes: 0.000ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>
+Checking conformance for constraint: <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#PostalAddressShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>>
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb18>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb18>
+Milliseconds to find value nodes for focus nodes: 0.004ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#PostalAddressShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb18>
+Checking conformance for constraint: <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb18>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#PostalAddressShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb18> -> <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb18>>
+Milliseconds to check constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb18>>: 0.008ms
+DataGraph conforms to constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb18>>.
+Checking conformance for constraint: <DatatypeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb18>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#PostalAddressShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb18> -> <DatatypeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb18>>
+Milliseconds to check constraint <DatatypeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb18>>: 0.008ms
+DataGraph conforms to constraint <DatatypeConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb18>>.
+Checking conformance for constraint: <MinLengthConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb18>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#PostalAddressShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb18> -> <MinLengthConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb18>>
+Milliseconds to check constraint <MinLengthConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb18>>: 0.010ms
+DataGraph conforms to constraint <MinLengthConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb18>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb18>: 0.121ms
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb19>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb19>
+Milliseconds to find value nodes for focus nodes: 0.003ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#PostalAddressShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb19>
+Checking conformance for constraint: <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb19>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#PostalAddressShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb19> -> <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb19>>
+Milliseconds to check constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb19>>: 0.007ms
+DataGraph conforms to constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb19>>.
+Checking conformance for constraint: <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb19>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#PostalAddressShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb19> -> <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb19>>
+Milliseconds to check constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb19>>: 0.010ms
+DataGraph conforms to constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb19>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb19>: 0.084ms
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb20>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb20>
+Milliseconds to find value nodes for focus nodes: 0.003ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#PostalAddressShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb20>
+Checking conformance for constraint: <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb20>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#PostalAddressShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb20> -> <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb20>>
+Milliseconds to check constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb20>>: 0.007ms
+DataGraph conforms to constraint <MinCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb20>>.
+Checking conformance for constraint: <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb20>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#PostalAddressShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb20> -> <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb20>>
+Milliseconds to check constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb20>>: 0.010ms
+DataGraph conforms to constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb20>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb20>: 0.080ms
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb21>
+Shape was passed 1 Focus Node/s to evaluate.
+Running evaluation of Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb21>
+Milliseconds to find value nodes for focus nodes: 0.003ms
+Current shape evaluation path: <NodeShape http://example.org/shapes/inmontology#PostalAddressShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb21>
+Checking conformance for constraint: <MaxCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb21>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#PostalAddressShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb21> -> <MaxCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb21>>
+Milliseconds to check constraint <MaxCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb21>>: 0.008ms
+DataGraph conforms to constraint <MaxCountConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb21>>.
+Checking conformance for constraint: <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb21>>
+Current constraint evaluation path: <NodeShape http://example.org/shapes/inmontology#PostalAddressShape> -> <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>> -> <PropertyShape n4e502c3d40994c669307b9df0076300cb21> -> <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb21>>
+Milliseconds to check constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb21>>: 0.011ms
+DataGraph conforms to constraint <ClassConstraintComponent on <PropertyShape n4e502c3d40994c669307b9df0076300cb21>>.
+Milliseconds to evaluate shape <PropertyShape n4e502c3d40994c669307b9df0076300cb21>: 0.090ms
+Milliseconds to check constraint <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>>: 0.470ms
+DataGraph conforms to constraint <PropertyConstraintComponent on <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>>.
+Milliseconds to evaluate shape <NodeShape http://example.org/shapes/inmontology#PostalAddressShape>: 0.526ms
+Checking if Shape <NodeShape n4e502c3d40994c669307b9df0076300cb23> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.009ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <NodeShape n4e502c3d40994c669307b9df0076300cb23> because it found no focus nodes.
+Checking if Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb7> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.008ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <PropertyShape n4e502c3d40994c669307b9df0076300cb7> because it found no focus nodes.
+Checking if Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb3> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.008ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <PropertyShape n4e502c3d40994c669307b9df0076300cb3> because it found no focus nodes.
+Checking if Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb21> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.010ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <PropertyShape n4e502c3d40994c669307b9df0076300cb21> because it found no focus nodes.
+Checking if Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb20> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.008ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <PropertyShape n4e502c3d40994c669307b9df0076300cb20> because it found no focus nodes.
+Checking if Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb13> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.015ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <PropertyShape n4e502c3d40994c669307b9df0076300cb13> because it found no focus nodes.
+Checking if Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb19> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.009ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <PropertyShape n4e502c3d40994c669307b9df0076300cb19> because it found no focus nodes.
+Checking if Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb12> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.008ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <PropertyShape n4e502c3d40994c669307b9df0076300cb12> because it found no focus nodes.
+Checking if Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb6> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.007ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <PropertyShape n4e502c3d40994c669307b9df0076300cb6> because it found no focus nodes.
+Checking if Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb1> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.007ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <PropertyShape n4e502c3d40994c669307b9df0076300cb1> because it found no focus nodes.
+Checking if Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb15> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.007ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <PropertyShape n4e502c3d40994c669307b9df0076300cb15> because it found no focus nodes.
+Checking if Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb5> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.007ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <PropertyShape n4e502c3d40994c669307b9df0076300cb5> because it found no focus nodes.
+Checking if Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb14> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.007ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <PropertyShape n4e502c3d40994c669307b9df0076300cb14> because it found no focus nodes.
+Checking if Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb11> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.007ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <PropertyShape n4e502c3d40994c669307b9df0076300cb11> because it found no focus nodes.
+Checking if Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb2> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.007ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <PropertyShape n4e502c3d40994c669307b9df0076300cb2> because it found no focus nodes.
+Checking if Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb10> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.007ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <PropertyShape n4e502c3d40994c669307b9df0076300cb10> because it found no focus nodes.
+Checking if Shape <PropertyShape n4e502c3d40994c669307b9df0076300cb18> defines its own targets.
+Identifying targets to find focus nodes.
+Milliseconds to find focus nodes: 0.007ms
+Found 0 Focus Nodes to evaluate.
+Skipping shape <PropertyShape n4e502c3d40994c669307b9df0076300cb18> because it found no focus nodes.
+Validation Report
+Conforms: True

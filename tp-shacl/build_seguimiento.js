@@ -160,6 +160,79 @@ function propsTable(items) {
   });
 }
 
+function violationsTable(items) {
+  const headerCell = (txt, w) => new TableCell({
+    borders,
+    width: { size: w, type: WidthType.DXA },
+    shading: { fill: "F5D6D6", type: ShadingType.CLEAR },
+    margins: { top: 80, bottom: 80, left: 120, right: 120 },
+    children: [new Paragraph({ children: [new TextRun({ text: txt, bold: true })] })]
+  });
+  const cell = (txt, w, mono) => new TableCell({
+    borders,
+    width: { size: w, type: WidthType.DXA },
+    margins: { top: 60, bottom: 60, left: 120, right: 120 },
+    children: [new Paragraph({ children: [new TextRun(mono ? { text: txt, font: 'Courier New', size: 18 } : { text: txt, size: 18 })] })]
+  });
+  const widths = [500, 1900, 2200, 2360, 2400];
+  const rows = [
+    new TableRow({ children: [
+      headerCell('ID', widths[0]),
+      headerCell('Nodo', widths[1]),
+      headerCell('Qué se rompió', widths[2]),
+      headerCell('Componente SHACL', widths[3]),
+      headerCell('Shape', widths[4])
+    ] }),
+    ...items.map(it => new TableRow({ children: [
+      cell(it[0], widths[0], false),
+      cell(it[1], widths[1], true),
+      cell(it[2], widths[2], false),
+      cell(it[3], widths[3], false),
+      cell(it[4], widths[4], true)
+    ] }))
+  ];
+  return new Table({
+    width: { size: 9360, type: WidthType.DXA },
+    columnWidths: widths,
+    rows
+  });
+}
+
+function shapesTable(items) {
+  const headerCell = (txt, w) => new TableCell({
+    borders,
+    width: { size: w, type: WidthType.DXA },
+    shading: { fill: "D5E8F0", type: ShadingType.CLEAR },
+    margins: { top: 80, bottom: 80, left: 120, right: 120 },
+    children: [new Paragraph({ children: [new TextRun({ text: txt, bold: true })] })]
+  });
+  const cell = (txt, w, mono) => new TableCell({
+    borders,
+    width: { size: w, type: WidthType.DXA },
+    margins: { top: 60, bottom: 60, left: 120, right: 120 },
+    children: [new Paragraph({ children: [new TextRun(mono ? { text: txt, font: 'Courier New', size: 20 } : { text: txt, size: 20 })] })]
+  });
+  const rows = [
+    new TableRow({ children: [
+      headerCell('#', 500),
+      headerCell('Shape', 2500),
+      headerCell('targetClass', 2360),
+      headerCell('Restricciones principales', 4000)
+    ] }),
+    ...items.map(it => new TableRow({ children: [
+      cell(it[0], 500, false),
+      cell(it[1], 2500, true),
+      cell(it[2], 2360, true),
+      cell(it[3], 4000, false)
+    ] }))
+  ];
+  return new Table({
+    width: { size: 9360, type: WidthType.DXA },
+    columnWidths: [500, 2500, 2360, 4000],
+    rows
+  });
+}
+
 function subclasesTable(items, padre) {
   const headerCell = (txt, w) => new TableCell({
     borders,
@@ -322,6 +395,111 @@ SELECT ?sub WHERE { ?sub rdfs:subClassOf rec:RealEstate }`),
       h2("Cierre del bloque de exploración"),
       p("Con las 4 queries cubrimos: clases existentes (Q1), jerarquías (Q2 y Q4 cruzada), y propiedades con sus dominios/rangos (Q3)."),
       p("Próximo paso: redactar shapes.ttl usando los nombres reales en inglés (House, Apartment, Price, Address, PostalAddress, etc.) y reflejar la jerarquía RealEstate → House con sh:node."),
+      p(""),
+
+      h2("Etapa 2 — Redacción de shapes.ttl"),
+      h3("Archivo generado"),
+      p("Ruta: tp-shacl/shapes.ttl"),
+      p("Estado: parsea correctamente (128 tripletas). Verificado con rdflib."),
+      p(""),
+      h3("NodeShapes incluidas (7 en total — requisito mínimo: 5)"),
+      shapesTable([
+        ["1", ":RealEstateShape", "rec:RealEstate", "Shape padre. Todo inmueble debe tener ≥1 io:Feature y ≥1 rec:Architecture."],
+        ["2", ":HouseShape", "io:House", "Shape HIJA: hereda de RealEstateShape vía sh:node + exige io:RoomAmnt (cumple jerarquía)."],
+        ["3", ":RealEstateListingShape", "pronto:RealEstateListing", "Aviso: sioc:about (1..1 rec:RealEstate), sioc:has_creator, gr:hasBusinessFunction ∈ {Sell, LeaseOut}, sioc:id, ≥1 feature."],
+        ["4", ":PriceShape", "io:Price", "Todo io:Price debe tener al menos un io:hasDetail (TemporalFeature)."],
+        ["5", ":UnitPriceSpecificationShape", "gr:UnitPriceSpecification", "Moneda ISO 4217 (regex), monto float > 0, priceType ∈ {BASE, TOTAL}."],
+        ["6", ":PostalAddressShape", "io:PostalAddress", "io:address no vacío, rec:city y io:province obligatorias, io:neighborhood opcional pero tipada."],
+        ["7", ":OriginShape", "io:Origin", "Debe ser IRI nombrado y de tipo io:Scraper, io:AVE o io:Curation (sh:or)."],
+      ]),
+      p(""),
+      h3("Conteo de restricciones"),
+      p("• Total sh:property declaradas: 16 (requisito mínimo: 15) ✅"),
+      p("• Constraints usadas (variedad): sh:minCount, sh:maxCount, sh:datatype, sh:class, sh:nodeKind, sh:pattern, sh:minExclusive, sh:minLength, sh:in, sh:or, sh:node, sh:qualifiedValueShape, sh:qualifiedMinCount, sh:message."),
+      p("• Jerarquía: HouseShape sh:node :RealEstateShape — cumple el requisito 'analizar una jerarquía de clases' ✅"),
+      p(""),
+      h3("Decisiones de diseño tomadas"),
+      p("• Prefijo de las shapes: : → http://example.org/shapes/inmontology# (namespace propio, no choca con OVS)."),
+      p("• Se NO restringió io:Feature como NodeShape directa porque cada subclase (Price, Address, Dimensions, etc.) tiene su propia lógica — se atacan individualmente (PriceShape) o vía la subclase de RealEstate (HouseShape exige io:RoomAmnt)."),
+      p("• El detalle temporal (io:TemporalFeature, io:hasScraperValue, io:hasScraperTime) queda implícito: PriceShape exige io:hasDetail pero no se restringe la estructura interna del detalle para no acoplarse a un origen específico (Scraper vs AVE vs Curation). Buen punto para trabajos futuros."),
+      p("• OriginShape usa sh:or con sh:class para forzar que el origen sea una de las 3 subclases definidas (Scraper, AVE, Curation)."),
+      p(""),
+      h3("Cosas que quedaron como TRABAJOS FUTUROS"),
+      p("• Coherencia superficie cubierta ≤ total (requiere sh:sparql, no constraints básicos)."),
+      p("• Validar que sioc:read_at sea posterior o igual a dc:date del listing."),
+      p("• Coherencia origen-timestamp: si origen es AVE debe haber io:hasAVETime; si es Scraper debe haber io:hasScraperTime; si es Curation debe haber io:hasCurationTime."),
+      p("• Validar que las coordenadas geográficas (rec:coordinates) caigan dentro del bounding box de la io:Province declarada."),
+      p(""),
+      h3("Verificación realizada"),
+      ...codeBlock(`$ python3 -c "import rdflib; g=rdflib.Graph(); g.parse('shapes.ttl'); print(len(g))"
+128
+
+NodeShapes encontradas: 7
+  - :RealEstateShape
+  - :HouseShape
+  - :RealEstateListingShape
+  - :PriceShape
+  - :UnitPriceSpecificationShape
+  - :PostalAddressShape
+  - :OriginShape
+
+sh:property declaradas: 16`),
+      p(""),
+      h3("Ajuste aplicado durante la validación"),
+      p("En PriceShape la restricción sh:in para gr:priceType combinada con sh:datatype xsd:string generaba un falso positivo en pyshacl. Se reemplazó por:"),
+      ...codeBlock(`sh:in ( "BASE"^^xsd:string "TOTAL"^^xsd:string )`),
+      p("Funcionalmente equivalente, sin el quirk del motor."),
+      p(""),
+
+      h2("Etapa 3 — Datos de prueba y validación"),
+      h3("Archivos generados"),
+      p("• tp-shacl/data-valid.ttl — grafo que cumple todas las restricciones."),
+      p("• tp-shacl/data-invalid.ttl — grafo que viola 8 restricciones distintas a propósito."),
+      p("• tp-shacl/reports/valid-report.txt — reporte pyshacl del caso válido."),
+      p("• tp-shacl/reports/invalid-report.txt — reporte pyshacl del caso inválido."),
+      p(""),
+      h3("Comando de validación usado"),
+      ...codeBlock(`python3 -m pyshacl -s tp-shacl/shapes.ttl \\
+                  -d tp-shacl/data-valid.ttl \\
+                  -e inmontology.owl \\
+                  --inference rdfs \\
+                  -f human`),
+      p(""),
+      p("Notar el flag -e inmontology.owl: pyshacl necesita la ontología base para saber, por ejemplo, que io:Price es subclase de io:Feature. Sin eso falla por error de tipos. Con --inference rdfs aplica las inferencias rdfs:subClassOf automáticamente."),
+      p(""),
+      h3("Resultado del caso VÁLIDO"),
+      ...codeBlock(`Validation Report
+Conforms: True`),
+      p("→ El grafo data-valid.ttl pasa las 16 restricciones definidas en shapes.ttl."),
+      p(""),
+      h3("Resultado del caso INVÁLIDO (8 violaciones diseñadas)"),
+      ...codeBlock(`Validation Report
+Conforms: False
+Results (9)`),
+      p("(9 = 8 violaciones diseñadas, pero la del Origin genera 2 reportes porque sh:or registra cada sh:class fallido por separado)"),
+      p(""),
+      h3("Tabla: violación diseñada → componente SHACL detectado"),
+      violationsTable([
+        ["V1", "ex:price_value_bad", "gr:hasCurrency = 'dolares'", "PatternConstraintComponent (sh:pattern)", "UnitPriceSpecificationShape"],
+        ["V2", "ex:price_value_bad", "gr:hasCurrencyValue = -50000.0", "MinExclusiveConstraintComponent", "UnitPriceSpecificationShape"],
+        ["V3", "ex:listing_bad", "sin sioc:has_creator", "MinCountConstraintComponent", "RealEstateListingShape"],
+        ["V4", "ex:listing_bad", "gr:hasBusinessFunction = gr:Repair", "InConstraintComponent (sh:in)", "RealEstateListingShape"],
+        ["V5", "ex:house_bad", "Casa sin io:RoomAmnt entre sus features", "QualifiedMinCountConstraintComponent", "HouseShape"],
+        ["V6", "ex:postal_address_bad", "sin io:province", "MinCountConstraintComponent", "PostalAddressShape"],
+        ["V7", "ex:postal_address_bad", "io:neighborhood = 'Centro' (string)", "ClassConstraintComponent (sh:class)", "PostalAddressShape"],
+        ["V8", "blank node de io:Origin", "blank node + no es Scraper/AVE/Curation", "NodeKindConstraintComponent + OrConstraintComponent", "OriginShape"],
+      ]),
+      p(""),
+      h3("Conclusión"),
+      p("Las dos validaciones funcionan como se esperaba:"),
+      p("• El grafo válido es aceptado (Conforms: True)."),
+      p("• El grafo inválido es rechazado y SHACL identifica exactamente qué restricción se violó, en qué nodo y por qué."),
+      p("• El uso de variedad de constraints (pattern, minExclusive, minCount, in, class, qualifiedMinCount, nodeKind, or) demuestra el alcance de SHACL para validar grafos de conocimiento."),
+      p(""),
+      h3("Próximo paso"),
+      p("• Repetir esta validación dentro de GraphDB (cargar shapes.ttl como SHACL shapes graph + importar los dos data.ttl) para tener los screenshots para el video."),
+      p("• Armar el documento final con: integrantes, URL del video, tabla de restricciones con justificación (sale de los comentarios de shapes.ttl), y los screenshots."),
+      p("• Grabar el video con los 4 integrantes."),
     ]
   }]
 });

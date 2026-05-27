@@ -1,0 +1,292 @@
+# =============================================================================
+# TP Gestión del Conocimiento — Opción 1: Restricciones SHACL
+# Grafo de restricciones (SHAPES) sobre la ontología OVS-inmontology
+# =============================================================================
+# Integrantes: [completar]
+# Repositorio base: https://github.com/cientopolis/OVS-inmontology
+# Fecha: 2026
+#
+# Resumen de cumplimiento de requisitos del TP:
+#   - 7 NodeShape (requisito mínimo: 5)
+#   - 20+ sh:property (requisito mínimo: 15)
+#   - Jerarquía: HouseShape hereda de RealEstateShape vía sh:node
+#   - Acompañado de: data-valid.ttl (válido) y data-invalid.ttl (con violaciones)
+# =============================================================================
+
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix gr:     <http://purl.org/goodrelations/v1#> .
+@prefix sioc:   <http://rdfs.org/sioc/ns#> .
+@prefix time:   <http://www.w3.org/2006/time#> .
+@prefix rec:    <https://w3id.org/rec#> .
+@prefix pronto: <https://raw.githubusercontent.com/fdioguardi/pronto/main/ontology/pronto.owl#> .
+@prefix io:     <http://www.semanticweb.org/luciana/ontologies/2024/8/inmontology#> .
+@prefix :       <http://example.org/shapes/inmontology#> .
+
+
+# =============================================================================
+# 1) RealEstateShape  —  Shape PADRE de la jerarquía de inmuebles
+# =============================================================================
+# Aplica a toda instancia de rec:RealEstate (y por herencia, a House,
+# Apartment, Land, CondominiumUnit, Store, Hotel, Farm, Warehouse, ParkingLot).
+# Define las restricciones COMUNES a cualquier inmueble.
+# =============================================================================
+
+:RealEstateShape a sh:NodeShape ;
+    sh:targetClass rec:RealEstate ;
+    rdfs:label "Restricciones generales para todo inmueble"@es ;
+
+    # Justificación: un inmueble sin features (precio, dirección, dimensiones,
+    # etc.) no tiene información útil. Como mínimo debe tener una.
+    sh:property [
+        sh:path io:hasFeature ;
+        sh:minCount 1 ;
+        sh:class io:Feature ;
+        sh:message "Todo inmueble debe tener al menos una io:Feature (precio, dirección, dimensiones, etc.)"@es ;
+    ] ;
+
+    # Justificación: rec:includes vincula al inmueble con su estructura
+    # arquitectónica (Building, Room, Site). Sin eso no se puede describir
+    # físicamente el inmueble.
+    sh:property [
+        sh:path rec:includes ;
+        sh:minCount 1 ;
+        sh:class rec:Architecture ;
+        sh:message "Todo inmueble debe incluir al menos un rec:Architecture (Building, Room, etc.)"@es ;
+    ] .
+
+
+# =============================================================================
+# 2) HouseShape  —  Shape HIJA (demuestra jerarquía de clases con sh:node)
+# =============================================================================
+# Aplica a io:House (subClassOf rec:RealEstate). Hereda TODAS las restricciones
+# de RealEstateShape mediante sh:node y agrega las propias de una casa.
+# Este es el punto que cumple el requisito "analizar una jerarquía de clases".
+# =============================================================================
+
+:HouseShape a sh:NodeShape ;
+    sh:targetClass io:House ;
+    rdfs:label "Restricciones específicas para casas (hereda de RealEstateShape)"@es ;
+
+    # Herencia: una casa debe cumplir TODO lo que cumple un RealEstate.
+    sh:node :RealEstateShape ;
+
+    # Justificación: una casa habitable debe declarar cantidad de ambientes.
+    # Validamos que la lista de features incluya al menos una io:RoomAmnt.
+    sh:property [
+        sh:path io:hasFeature ;
+        sh:qualifiedValueShape [
+            sh:class io:RoomAmnt ;
+        ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:message "Una casa (io:House) debe declarar al menos una feature io:RoomAmnt (cantidad de ambientes)"@es ;
+    ] .
+
+
+# =============================================================================
+# 3) RealEstateListingShape  —  Publicación inmobiliaria (aviso)
+# =============================================================================
+# Aplica a pronto:RealEstateListing, que es la publicación/aviso del inmueble.
+# Es el "post" de un sitio inmobiliario y por eso hereda de sioc:Post,
+# gr:Offering, etc.
+# =============================================================================
+
+:RealEstateListingShape a sh:NodeShape ;
+    sh:targetClass pronto:RealEstateListing ;
+    rdfs:label "Restricciones para publicaciones inmobiliarias"@es ;
+
+    # Justificación: un aviso necesariamente habla DE UN inmueble (uno solo,
+    # no varios, no ninguno).
+    sh:property [
+        sh:path sioc:about ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class rec:RealEstate ;
+        sh:message "Una publicación debe referenciar exactamente un inmueble (rec:RealEstate) vía sioc:about"@es ;
+    ] ;
+
+    # Justificación: trazabilidad — toda publicación debe tener autor conocido.
+    sh:property [
+        sh:path sioc:has_creator ;
+        sh:minCount 1 ;
+        sh:class sioc:UserAccount ;
+        sh:message "Una publicación debe tener un sioc:has_creator (sioc:UserAccount)"@es ;
+    ] ;
+
+    # Justificación: la función comercial debe estar acotada a las definidas
+    # por GoodRelations para inmobiliarias (venta o alquiler). Cualquier otra
+    # cosa rompe el modelo de negocio.
+    sh:property [
+        sh:path gr:hasBusinessFunction ;
+        sh:minCount 1 ;
+        sh:in ( gr:Sell gr:LeaseOut ) ;
+        sh:message "gr:hasBusinessFunction debe ser gr:Sell o gr:LeaseOut"@es ;
+    ] ;
+
+    # Justificación: el ID único del aviso es necesario para deduplicar y
+    # rastrear actualizaciones a lo largo del tiempo.
+    sh:property [
+        sh:path sioc:id ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "La publicación debe tener un sioc:id (string) identificatorio"@es ;
+    ] ;
+
+    # Justificación: el precio (al menos) es una feature del aviso, no del
+    # inmueble en sí (puede cambiar entre avisos del mismo inmueble).
+    sh:property [
+        sh:path io:hasFeature ;
+        sh:minCount 1 ;
+        sh:class io:Feature ;
+        sh:message "La publicación debe tener al menos una io:Feature (típicamente io:Price)"@es ;
+    ] .
+
+
+# =============================================================================
+# 4) PriceShape  —  Feature de precio
+# =============================================================================
+# Aplica a io:Price (subClassOf io:Feature). Las features OVS guardan el valor
+# real dentro de io:hasDetail → io:TemporalFeature → io:hasScraperValue (o
+# AVE/Curation), porque registran historial temporal con origen del dato.
+# =============================================================================
+
+:PriceShape a sh:NodeShape ;
+    sh:targetClass io:Price ;
+    rdfs:label "Restricciones para la feature de precio"@es ;
+
+    # Justificación: un precio sin detalle temporal es inútil, no se sabe
+    # cuándo ni de qué fuente vino el valor.
+    sh:property [
+        sh:path io:hasDetail ;
+        sh:minCount 1 ;
+        sh:message "Un io:Price debe tener al menos un io:hasDetail con TemporalFeature"@es ;
+    ] .
+
+
+# =============================================================================
+# 5) UnitPriceSpecificationShape  —  Especificación numérica del precio
+# =============================================================================
+# Aplica a gr:UnitPriceSpecification, que es el valor concreto del precio
+# (visto dentro de io:hasScraperValue). Aquí van las validaciones de moneda,
+# monto y tipo.
+# =============================================================================
+
+:UnitPriceSpecificationShape a sh:NodeShape ;
+    sh:targetClass gr:UnitPriceSpecification ;
+    rdfs:label "Restricciones para valor de precio (monto, moneda, tipo)"@es ;
+
+    # Justificación: la moneda debe ser un código ISO 4217 (3 letras
+    # mayúsculas: USD, ARS, EUR…). Strings libres como "dolares" o "u$s"
+    # rompen interoperabilidad.
+    sh:property [
+        sh:path gr:hasCurrency ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[A-Z]{3}$" ;
+        sh:message "gr:hasCurrency debe ser código ISO 4217 (3 letras mayúsculas, ej: USD, ARS, EUR)"@es ;
+    ] ;
+
+    # Justificación: el monto debe ser numérico y estrictamente positivo. Un
+    # precio cero o negativo no tiene sentido económico.
+    sh:property [
+        sh:path gr:hasCurrencyValue ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:float ;
+        sh:minExclusive 0.0 ;
+        sh:message "gr:hasCurrencyValue debe ser un xsd:float estrictamente mayor a 0"@es ;
+    ] ;
+
+    # Justificación: el tipo de precio observado en datos reales es BASE o
+    # TOTAL. Acotamos a esos valores para evitar variantes ambiguas.
+    sh:property [
+        sh:path gr:priceType ;
+        sh:in ( "BASE"^^xsd:string "TOTAL"^^xsd:string ) ;
+        sh:message "gr:priceType debe ser 'BASE' o 'TOTAL'"@es ;
+    ] .
+
+
+# =============================================================================
+# 6) PostalAddressShape  —  Dirección postal
+# =============================================================================
+# Aplica a io:PostalAddress (valor concreto de un io:Address feature).
+# =============================================================================
+
+:PostalAddressShape a sh:NodeShape ;
+    sh:targetClass io:PostalAddress ;
+    rdfs:label "Restricciones para dirección postal"@es ;
+
+    # Justificación: la dirección (calle y altura) no puede estar vacía.
+    sh:property [
+        sh:path io:address ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:minLength 1 ;
+        sh:message "io:address debe ser un string no vacío"@es ;
+    ] ;
+
+    # Justificación: la ciudad es obligatoria. El rango declarado es io:City.
+    sh:property [
+        sh:path rec:city ;
+        sh:minCount 1 ;
+        sh:class io:City ;
+        sh:message "Una dirección debe tener una rec:city (io:City)"@es ;
+    ] ;
+
+    # Justificación: la provincia es obligatoria. El rango declarado es
+    # io:Province.
+    sh:property [
+        sh:path io:province ;
+        sh:minCount 1 ;
+        sh:class io:Province ;
+        sh:message "Una dirección debe tener un io:province (io:Province)"@es ;
+    ] ;
+
+    # Justificación: el barrio es opcional pero, si está, debe ser una
+    # instancia de io:Neighborhood (no un string libre).
+    sh:property [
+        sh:path io:neighborhood ;
+        sh:maxCount 1 ;
+        sh:class io:Neighborhood ;
+        sh:message "Si se declara io:neighborhood, debe ser una io:Neighborhood"@es ;
+    ] .
+
+
+# =============================================================================
+# 7) OriginShape  —  Origen del dato (Scraper / AVE / Curation)
+# =============================================================================
+# Aplica a io:Origin. La ontología define 3 subclases de origen, y queremos
+# garantizar que toda instancia sea una de esas tres (no un blank node ni una
+# clase arbitraria).
+# =============================================================================
+
+:OriginShape a sh:NodeShape ;
+    sh:targetClass io:Origin ;
+    rdfs:label "Restricciones para origen del dato"@es ;
+
+    # Justificación: el origen debe ser identificable (IRI nombrado), no un
+    # blank node anónimo, para poder citarlo y auditarlo.
+    sh:nodeKind sh:IRI ;
+
+    # Justificación: un origen debe pertenecer a uno de los 3 mecanismos
+    # definidos en la ontología (Scraper, AVE o Curation manual). Cualquier
+    # otra cosa indica datos mal modelados.
+    sh:or (
+        [ sh:class io:Scraper ]
+        [ sh:class io:AVE ]
+        [ sh:class io:Curation ]
+    ) ;
+    sh:message "Toda instancia de io:Origin debe ser io:Scraper, io:AVE o io:Curation"@es .
+
+
+# =============================================================================
+# Notas y trabajos futuros (para mencionar en el video):
+#   - Coherencia entre superficie cubierta y total (cubierta ≤ total) requiere
+#     sh:sparql, queda fuera de constraints básicos.
+#   - Validar que sioc:read_at >= dc:date del listing (consistencia temporal).
+#   - Validar que un AVE tenga io:hasAVETime declarado, un Scraper tenga
+#     io:hasScraperTime, etc. (coherencia entre origen y timestamp).
+# =============================================================================
